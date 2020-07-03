@@ -11,7 +11,7 @@ def longest_run(L):
     # Your code here
     temp = []
     for value in L:
-        if(len(temp) == 0):
+        if not temp:
             temp.append(value)
         else:
             if(value > temp[len(temp) - 1]):

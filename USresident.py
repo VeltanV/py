@@ -22,7 +22,7 @@ class Person(object):
     def getAge(self):
         # assumes that self's age has been set
         # returns self's current age in years
-        if self.age == None:
+        if self.age is None:
             raise ValueError
         return self.age
 

@@ -6,9 +6,8 @@ def uniqueValues(aDict):
 
 
     for value in dictValues:
-        if dictValues.count(value) > 1:
-            if(value not in mNumbers):
-                mNumbers.append(value)
+        if dictValues.count(value) > 1 and (value not in mNumbers):
+            mNumbers.append(value)
 
     for key in dictKeys:
         if(aDict[key] in mNumbers):

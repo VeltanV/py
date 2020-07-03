@@ -207,8 +207,7 @@ class _IndividualSpecifier(BaseSpecifier):
         # any values, and if we have not and we have any prereleases stored up
         # then we will go ahead and yield the prereleases.
         if not yielded and found_prereleases:
-            for version in found_prereleases:
-                yield version
+            yield from found_prereleases
 
 
 class LegacySpecifier(_IndividualSpecifier):
@@ -397,12 +396,12 @@ class Specifier(_IndividualSpecifier):
         prefix = ".".join(
             list(
                 itertools.takewhile(
-                    lambda x: (not x.startswith("post") and not
-                               x.startswith("dev")),
+                    lambda x: not (x.startswith("post") or x.startswith("dev")),
                     _version_split(spec),
                 )
             )[:-1]
         )
+
 
         # Add the prefix notation to the end of our string
         prefix += ".*"

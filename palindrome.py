@@ -4,10 +4,7 @@ def isPalindrome(aString):
 
     for x in oldString:
         newString = x + newString
-    if newString == oldString:
-        return True
-    else:
-        return False
+    return newString == oldString
 
 
 print(isPalindrome("StaTs"))
